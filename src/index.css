@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 210 12% 16%;
+    
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 210 12% 16%;
+    
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 12% 16%;
+    
+  /* Primary - blue accent */
+  --primary: 221 83% 53%; /* #2563eb blue-600 */
+  --primary-foreground: 0 0% 100%;
+  --primary-glow: 221 83% 63%; /* blue-500 */
+    
+    /* Secondary - soft neutral */
+    --secondary: 950 20% 96%;
+    --secondary-foreground: 210 12% 16%;
+    
+    /* Muted colors */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 12% 60%;
+    
+  /* Accent colors */
+  --accent: 221 83% 53%;
+  --accent-foreground: 0 0% 100%;
+    
+    /* Destructive colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border and input */
+    --border: 210 20% 92%;
+    --input: 210 20% 94%;
+  --ring: 221 83% 53%;
+    
+    /* Design system tokens */
+  --hero-gradient: linear-gradient(135deg, hsl(210, 30%, 98%) 0%, hsl(221, 83%, 95%) 50%, hsl(210, 25%, 94%) 100%);
+  --card-shadow: 0 4px 20px -4px hsl(221 83% 53% / 0.15);
+  --card-shadow-hover: 0 12px 40px -8px hsl(221 83% 53% / 0.25);
+  --glow-primary: 0 0 30px hsl(221 83% 63% / 0.4);
+  --glow-strong: 0 0 40px hsl(221 83% 63% / 0.6);
+    
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 20% 8%;
+    --foreground: 210 20% 95%;
+    
+    --card: 210 20% 10%;
+    --card-foreground: 210 20% 95%;
+    
+    --popover: 210 20% 10%;
+    --popover-foreground: 210 20% 95%;
+    
+    --primary: 221 83% 60%; /* blue-500/600 más brillante */
+    --primary-foreground: 210 20% 8%;
+    --primary-glow: 221 83% 70%;
+    
+    --secondary: 210 20% 16%;
+    --secondary-foreground: 210 20% 95%;
+    
+    --muted: 210 20% 16%;
+    --muted-foreground: 210 12% 65%;
+    
+    --accent: 221 83% 60%;
+    --accent-foreground: 210 20% 8%;
+    
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 210 20% 8%;
+    
+    --border: 210 20% 20%;
+    --input: 210 20% 18%;
+    --ring: 221 83% 60%;
+    
+    --hero-gradient: linear-gradient(135deg, hsl(210, 25%, 12%) 0%, hsl(221, 83%, 20%) 50%, hsl(210, 30%, 10%) 100%);
+    --card-shadow: 0 4px 20px -4px hsl(221 83% 60% / 0.15);
+    --card-shadow-hover: 0 12px 40px -8px hsl(221 83% 60% / 0.15);
+    --glow-primary: 0 0 30px hsl(221 83% 70% / 0.3);
+    --glow-strong: 0 0 40px hsl(221 83% 70% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: var(--hero-gradient);
+    background-attachment: fixed;
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-strong {
+    box-shadow: var(--glow-strong);
+  }
+  
+  .card-elegant {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-elegant:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+  }
+  
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-4 font-medium transition-all duration-300 ease-out hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-hero:hover {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .profile-glow {
+    border: 3px solid hsl(var(--primary));
+    box-shadow: var(--glow-primary);
+    transition: all 0.3s ease;
+  }
+  
+  .profile-glow:hover {
+    box-shadow: var(--glow-strong);
+    transform: scale(1.05);
+  }
+}
