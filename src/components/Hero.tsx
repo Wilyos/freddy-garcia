@@ -36,22 +36,12 @@ const Hero = () => {
     window.URL.revokeObjectURL(url);
   };
 
-  // Función para scroll, guardar contacto y abrir WhatsApp
+  // Solo scroll a la sección de contacto
   const handleContactClick = () => {
-    // Scroll suave a la sección de contacto
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
-    // Guardar contacto
-    saveVCard();
-    // Mensaje de WhatsApp
-    const numeroWhatsApp = '3164661249';
-    const texto = `Hola, me gustaría ponerme en contacto contigo.`;
-    const url = `https://wa.me/57${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
-    setTimeout(() => {
-      window.open(url, '_blank');
-    }, 800); // Espera breve para que el scroll y descarga se perciban
   };
 
   return (
