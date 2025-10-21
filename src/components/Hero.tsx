@@ -22,7 +22,6 @@ const Hero = () => {
 
 
   // Función para guardar el contacto (vCard)
-  // Función para guardar el contacto (vCard)
   const saveVCard = () => {
     const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Freddy Garcia\nN:Garcia;Freddy;;;\nORG:IPROCOM S.A.\nTITLE:Director Comercial\nTEL:+573164661249\nEMAIL:Fgarcia@iprocom.co\nURL:https://ipropanel.com.co\nEND:VCARD`;
     const blob = new Blob([vCardData], { type: 'text/vcard' });

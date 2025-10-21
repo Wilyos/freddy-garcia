@@ -1,4 +1,5 @@
 import { Globe, Linkedin, Mail, Instagram } from "lucide-react";
+import { incrementarContador } from "@/lib/contadorSheets";
 
 const Contact = () => {
   const socialLinks = [
@@ -22,7 +23,9 @@ const Contact = () => {
   // Prueba con api.whatsapp.com como alternativa
   const url = `https://api.whatsapp.com/send?phone=57${numeroWhatsApp}&text=${encodeURIComponent(texto)}`;
   console.log("WhatsApp URL:", url);
-    window.open(url, "_blank");
+  window.open(url, "_blank");
+  // Incrementar contador en Google Sheets
+  incrementarContador();
     // Detectar si es escritorio (no móvil)
     const isDesktop = !/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
     if (isDesktop) {
