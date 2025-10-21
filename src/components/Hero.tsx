@@ -20,18 +20,11 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
-  const downloadVCard = () => {
-    const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Freddy Garcia
-N:Garcia;Freddy;;;
-ORG:IPROCOM S.A.
-TITLE:Director Comercial
-TEL:+573164661249
-EMAIL:Fgarcia@iprocom.co
-URL:https://ipropanel.com.co
-END:VCARD`;
 
+  // Función para guardar el contacto (vCard)
+  // Función para guardar el contacto (vCard)
+  const saveVCard = () => {
+    const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Freddy Garcia\nN:Garcia;Freddy;;;\nORG:IPROCOM S.A.\nTITLE:Director Comercial\nTEL:+573164661249\nEMAIL:Fgarcia@iprocom.co\nURL:https://ipropanel.com.co\nEND:VCARD`;
     const blob = new Blob([vCardData], { type: 'text/vcard' });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -41,6 +34,24 @@ END:VCARD`;
     link.click();
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
+  };
+
+  // Función para scroll, guardar contacto y abrir WhatsApp
+  const handleContactClick = () => {
+    // Scroll suave a la sección de contacto
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Guardar contacto
+    saveVCard();
+    // Mensaje de WhatsApp
+    const numeroWhatsApp = '3164661249';
+    const texto = `Hola, me gustaría ponerme en contacto contigo.`;
+    const url = `https://wa.me/57${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+    setTimeout(() => {
+      window.open(url, '_blank');
+    }, 800); // Espera breve para que el scroll y descarga se perciban
   };
 
   return (
@@ -104,9 +115,9 @@ END:VCARD`;
 
             {/* CTA Button */}
             <div className="mb-12">
-              <Button onClick={downloadVCard} className="btn-hero group">
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-               Guardar Contacto
+              <Button onClick={handleContactClick} className="btn-hero group">
+                <Mail className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                Contáctame
               </Button>
             </div>
 
