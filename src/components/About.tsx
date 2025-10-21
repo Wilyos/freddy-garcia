@@ -1,4 +1,4 @@
-import profileAbout from "@/assets/iprocomlogo.png";
+import profileAbout from "@/assets/iprocomlogov2.png";
 
 const About = () => {
   return (
@@ -35,11 +35,11 @@ const About = () => {
             
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-               Somos una empresa orgullosamente Colombiana especializada en la inyección de componentes plásticos y en la aplicación de recubrimientos de alto desempeño.
+               Desde fachadas exteriores capaces de resistir los entornos más exigentes, hasta interiores donde el diseño se vuelve experiencia, desarrollamos soluciones arquitectónicas y decorativas que nacen del residuo, y su límite es la imaginación. ¿La clave? Combinamos manufactura con arte, innovación técnica con acabados de alto desempeño. 
               </p>
               
               <p>
-               Desarrollamos soluciones competitivas e innovadoras de la mano de nuestros aliados para suplir las exigentes necesidades del mercado nacional e internacional.
+              IPROPANEL® cuenta con recubrimiento grado automotriz, lo que no solo le otorga una estética sofisticada, sino también una resistencia excepcional al paso del tiempo, al clima y al uso diario. Cada panel, cada superficie, tiene el brillo, la profundidad, la durabilidad y la precisión que el espacio demanda.
               </p>
               
               <p>

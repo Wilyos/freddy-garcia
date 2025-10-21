@@ -1,21 +1,21 @@
-import { Factory, Layers, Beaker } from "lucide-react";
+import { Building2, Home, Frame } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: Factory,
-      title: "Inyección Técnica",
-      description: "Ofrecemos inyección técnica en materiales de ingeniería para crear productos como estuches, cajas blíster, hieleras, ganchos legajadores y organizadores multiusos con divisiones, entre otros. Nuestro servicio garantiza precisión, durabilidad y acabados de alta calidad, diseñados para cubrir tus necesidades de funcionalidad y personalización."
+      icon: Building2,
+      title: "Exterior",
+      description: "Revestimientos para fachadas y exteriores que ofrecen durabilidad y diseño, integrándose armoniosamente con el entorno."
     },
     {
-      icon: Layers,
-      title: "Recubrimiento sobre plásticos",
-      description: "Nos especializamos en la aplicación de recubrimientos sobre sustratos plásticos, generando productos con acabados innovadores y de alto desempeño."
+      icon: Home,
+      title: "Interior",
+      description: "Soluciones personalizadas de interiorismo que aportan estética y funcionalidad a tus espacios, reflejando tu estilo y necesidades."
     },
     {
-      icon: Beaker,
-      title: "Laboratorio",
-      description: "Contamos con un laboratorio completamente dotado para garantizar la calidad de nuestros productos y procesos."
+      icon: Frame,
+      title: "Deko",
+      description: "Cuadros decorativos retroiluminados que combinan arte y tecnología, creando ambientes únicos y sofisticados."
     }
   ];
 
@@ -28,7 +28,7 @@ const Services = () => {
           </h2>
           <div className="w-20 h-1 bg-primary rounded-full mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            nos especializamos en la inyección de componentes plásticos y en la aplicación de recubrimientos de alto desempeño, ofreciendo soluciones innovadoras y de alta calidad para diversas industrias.
+            En IPROPANEL® evolucionamos para ofrecer soluciones que se adaptan a las nuevas formas de habitar, construir y decorar. Nuestras líneas de producto —DEKO, INTERIOR y EXTERIOR— combinan innovación tecnológica, diseño personalizado y compromiso ambiental, permitiéndonos transformar espacios desde los detalles hasta las grandes estructuras.
           </p>
         </div>
         

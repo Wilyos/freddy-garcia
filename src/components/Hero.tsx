@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, Globe, Linkedin, Mail, Instagram } from "lucide-react";
-import profileImage from "@/assets/iprocomlogo.png";
+import profileImage from "@/assets/iprocomlogov2.png";
 import dayBg from "@/assets/video/day-bg.mp4";
 import nightBg from "@/assets/video/night-bg.mp4";
 import { useEffect, useState } from "react";
@@ -29,7 +29,7 @@ ORG:IPROCOM S.A.
 TITLE:Director Comercial
 TEL:+573164661249
 EMAIL:Fgarcia@iprocom.co
-URL:https://iprocom.com.co
+URL:https://ipropanel.com.co
 END:VCARD`;
 
     const blob = new Blob([vCardData], { type: 'text/vcard' });

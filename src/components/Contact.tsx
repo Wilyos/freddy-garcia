@@ -2,9 +2,9 @@ import { Globe, Linkedin, Mail, Instagram } from "lucide-react";
 
 const Contact = () => {
   const socialLinks = [
-    { icon: Globe, href: "https://iprocom.com.co", label: "Sitio Web", username: "iprocom.com.co" },
+    { icon: Globe, href: "https://ipropanel.com.co", label: "Sitio Web", username: "iprocom.com.co" },
     { icon: Linkedin, href: "https://www.linkedin.com/company/iprocom-s-a/?originalSubdomain=co", label: "LinkedIn", username: "IPROCOM S.A." },
-    { icon: Instagram, href: "https://www.instagram.com/iprocom_col/", label: "Instagram", username: "@iprocom_col" },
+    { icon: Instagram, href: "https://www.instagram.com/ipropanel", label: "Instagram", username: "@iprocom_col" },
     { icon: Mail, href: "mailto:Fgarcia@iprocom.co", label: "Email", username: "Fgarcia@iprocom.co" }
   ];
 
