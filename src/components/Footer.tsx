@@ -1,14 +1,22 @@
-
 import { useEffect, useState } from "react";
-import { obtenerContador } from "@/lib/contadorSheets";
 
 const Footer = () => {
-  const [contador, setContador] = useState<number | null>(null);
+
+  const [contador, setContador] = useState(null);
 
   useEffect(() => {
-    obtenerContador().then((data) => {
-      if (data && typeof data.contador === 'number') setContador(data.contador);
-    });
+    // Función para obtener el contador
+    const fetchContador = () => {
+      fetch("https://script.google.com/macros/s/AKfycbzCawKIfv3fwUMJjOG6R8zPgHLUrcVJT0rwXfymE0SgIQyjFfttYQ669QhqYZ_qdeK6/exec")
+        .then(res => res.text())
+        .then(num => setContador(num))
+        .catch(() => setContador(null));
+    };
+    fetchContador();
+    // Escuchar evento personalizado para actualizar en tiempo real
+    const handler = (e: any) => setContador(e.detail);
+    window.addEventListener('contador-actualizado', handler);
+    return () => window.removeEventListener('contador-actualizado', handler);
   }, []);
 
   return (
@@ -16,9 +24,9 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="text-center">
           <p className="text-sm text-background/80">
-            © 2025 Freddy Garcia — All rights reserved.<br />
-            {contador !== null && (
-              <span className="block mt-2">Visitas/Acciones: <b>{contador}</b></span>
+            © 2025 Freddy Garcia — All rights reserved.
+            {contador && (
+              <span className="ml-2 text-xs opacity-40 select-none">| Formularios enviados: {contador}</span>
             )}
           </p>
         </div>
