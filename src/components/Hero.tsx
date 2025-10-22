@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, Globe, Linkedin, Mail, Instagram } from "lucide-react";
-import profileImage from "@/assets/iprocomlogov2.png";
+import profileImage from "@/assets/freddyprofile.jpg";
 import dayBg from "@/assets/video/day-bg.mp4";
 import nightBg from "@/assets/video/night-bg.mp4";
 import { useEffect, useState } from "react";

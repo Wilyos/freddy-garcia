@@ -1,5 +1,5 @@
 import { Globe, Linkedin, Mail, Instagram } from "lucide-react";
-import { incrementarContador } from "@/lib/contadorSheets";
+import { incrementarContador } from "@/lib/contadorSupabase";
 
 const Contact = () => {
   const socialLinks = [
@@ -16,10 +16,10 @@ const Contact = () => {
     const nombre = (form.elements.namedItem("nombre") as HTMLInputElement)?.value;
     const telefono = (form.elements.namedItem("telefono") as HTMLInputElement)?.value;
     const correo = (form.elements.namedItem("correo") as HTMLInputElement)?.value;
-    const mensaje = (form.elements.namedItem("mensaje") as HTMLTextAreaElement)?.value;
+      const empresa = (form.elements.namedItem("empresa") as HTMLInputElement)?.value;
     const numeroWhatsApp = "3164661249";
   // Mensaje en formato WhatsApp, sin saltos de línea ni caracteres especiales
-  const texto = `Mi nombre es ${nombre}. ${mensaje} Mis datos de contacto: correo: ${correo}, teléfono: ${telefono}`;
+      const texto = `Mi nombre es ${nombre}, empresa: ${empresa}. Mis datos de contacto: correo: ${correo}, teléfono: ${telefono}`;
   // Prueba con api.whatsapp.com como alternativa
   const url = `https://api.whatsapp.com/send?phone=57${numeroWhatsApp}&text=${encodeURIComponent(texto)}`;
   console.log("WhatsApp URL:", url);
@@ -49,8 +49,29 @@ const Contact = () => {
           </p>
         </div>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          {/* Enlaces sociales */}
-          <div className="space-y-6">
+          {/* Formulario de contacto primero en móviles, segundo en escritorio */}
+          <form className="bg-card border border-border rounded-xl p-8 shadow space-y-6 order-1 md:order-none" onSubmit={handleWhatsApp}>
+            <div>
+              <label htmlFor="nombre" className="block text-sm font-medium text-foreground mb-1">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
+            </div>
+            <div>
+              <label htmlFor="telefono" className="block text-sm font-medium text-foreground mb-1">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
+            </div>
+            <div>
+              <label htmlFor="correo" className="block text-sm font-medium text-foreground mb-1">Correo</label>
+              <input type="email" id="correo" name="correo" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
+            </div>
+              <div>
+                <label htmlFor="empresa" className="block text-sm font-medium text-foreground mb-1">Empresa</label>
+                <input type="text" id="empresa" name="empresa" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
+              </div>
+            <button type="submit" className="w-full bg-primary text-background font-semibold py-2 px-4 rounded hover:bg-primary/90 transition">Enviar mensaje</button>
+          </form>
+
+          {/* Enlaces sociales después en móviles, primero en escritorio */}
+          <div className="space-y-6 order-2 md:order-none">
             {socialLinks.map(({ icon: Icon, href, label, username }) => (
               <a
                 key={label}
@@ -69,27 +90,6 @@ const Contact = () => {
               </a>
             ))}
           </div>
-
-          {/* Formulario de contacto */}
-          <form className="bg-card border border-border rounded-xl p-8 shadow space-y-6" onSubmit={handleWhatsApp}>
-            <div>
-              <label htmlFor="nombre" className="block text-sm font-medium text-foreground mb-1">Nombre</label>
-              <input type="text" id="nombre" name="nombre" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
-            </div>
-            <div>
-              <label htmlFor="telefono" className="block text-sm font-medium text-foreground mb-1">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
-            </div>
-            <div>
-              <label htmlFor="correo" className="block text-sm font-medium text-foreground mb-1">Correo</label>
-              <input type="email" id="correo" name="correo" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
-            </div>
-            <div>
-              <label htmlFor="mensaje" className="block text-sm font-medium text-foreground mb-1">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows={4} required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
-            </div>
-            <button type="submit" className="w-full bg-primary text-background font-semibold py-2 px-4 rounded hover:bg-primary/90 transition">Enviar mensaje</button>
-          </form>
         </div>
       </div>
     </section>

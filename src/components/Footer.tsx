@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { obtenerContador } from "@/lib/contadorSheets";
+import { obtenerContador } from "@/lib/contadorSupabase";
 
 const Footer = () => {
   const [contador, setContador] = useState(null);
