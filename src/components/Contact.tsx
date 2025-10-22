@@ -10,7 +10,7 @@ const Contact = () => {
   ];
 
   // Función para enviar mensaje por WhatsApp
-  const handleWhatsApp = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleWhatsApp = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const nombre = (form.elements.namedItem("nombre") as HTMLInputElement)?.value;
@@ -25,7 +25,13 @@ const Contact = () => {
   console.log("WhatsApp URL:", url);
   window.open(url, "_blank");
   // Incrementar contador en Google Sheets
-  incrementarContador();
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbyNhY2M5NblTSfD5-jFrEf66wF1_KIMK3MenbZB4aVW6N0VSk_TCMIfy6Qt6BsZdYZhCw/exec";
+    const params = new URLSearchParams({ nombre, empresa, correo, telefono });
+    try {
+      await fetch(scriptUrl, { method: "POST", body: params });
+    } catch (err) {
+      // Si falla, no pasa nada
+    } 
     // Detectar si es escritorio (no móvil)
     const isDesktop = !/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
     if (isDesktop) {
