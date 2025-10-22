@@ -99,7 +99,7 @@ const Hero = () => {
               Freddy Garcia
             </h1>
             <p className="text-xl lg:text-2xl text-foreground mb-8 leading-relaxed">
-              Director Comercial en IPROCOM.
+              Director Comercial
             </p>
 
             {/* CTA Button */}
