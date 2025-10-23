@@ -16,17 +16,19 @@ const Contact = () => {
     const nombre = (form.elements.namedItem("nombre") as HTMLInputElement)?.value;
     const telefono = (form.elements.namedItem("telefono") as HTMLInputElement)?.value;
     const correo = (form.elements.namedItem("correo") as HTMLInputElement)?.value;
-      const empresa = (form.elements.namedItem("empresa") as HTMLInputElement)?.value;
+    const empresa = (form.elements.namedItem("empresa") as HTMLInputElement)?.value;
+    const ciudad = (form.elements.namedItem("ciudad") as HTMLInputElement)?.value;
+    
     const numeroWhatsApp = "3164661249";
   // Mensaje en formato WhatsApp, sin saltos de línea ni caracteres especiales
-      const texto = `Mi nombre es ${nombre}, empresa: ${empresa}. Mis datos de contacto: correo: ${correo}, teléfono: ${telefono}`;
+      const texto = `Mi nombre es ${nombre}, empresa: ${empresa}, ciudad: ${ciudad}. Mis datos de contacto: correo: ${correo}, teléfono: ${telefono}`;
   // Prueba con api.whatsapp.com como alternativa
   const url = `https://api.whatsapp.com/send?phone=57${numeroWhatsApp}&text=${encodeURIComponent(texto)}`;
   console.log("WhatsApp URL:", url);
   window.open(url, "_blank");
   // Incrementar contador en Google Sheets
     const scriptUrl = "https://script.google.com/macros/s/AKfycbyNhY2M5NblTSfD5-jFrEf66wF1_KIMK3MenbZB4aVW6N0VSk_TCMIfy6Qt6BsZdYZhCw/exec";
-    const params = new URLSearchParams({ nombre, empresa, correo, telefono });
+    const params = new URLSearchParams({ nombre, empresa, correo, telefono, ciudad });
     try {
       await fetch(scriptUrl, { method: "POST", body: params });
     } catch (err) {
@@ -72,6 +74,10 @@ const Contact = () => {
               <div>
                 <label htmlFor="empresa" className="block text-sm font-medium text-foreground mb-1">Empresa</label>
                 <input type="text" id="empresa" name="empresa" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
+              </div>
+              <div>
+                <label htmlFor="ciudad" className="block text-sm font-medium text-foreground mb-1">Ciudad</label>
+                <input type="text" id="ciudad" name="ciudad" required className="w-full px-4 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground" />
               </div>
             <button type="submit" className="w-full bg-primary text-background font-semibold py-2 px-4 rounded hover:bg-primary/90 transition">Enviar mensaje</button>
           </form>
